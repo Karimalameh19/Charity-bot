@@ -52,7 +52,14 @@ async def on_error(context: TurnContext, error: Exception):
 ADAPTER.on_turn_error = on_error
 
 # Create the Bot
-BOT = EchoBot()  # Ensure your EchoBot is correctly imported and instantiated
+# In your main application file (e.g., app.py)
+
+openai_api_key = ""
+openai_endpoint = ""
+openai_deployment = ""
+api_version = ""
+BOT = EchoBot(openai_api_key, openai_endpoint, openai_deployment, api_version)  # Pass the required arguments
+ # Ensure your EchoBot is correctly imported and instantiated
 
 # Listen for incoming requests on /api/messages
 async def messages(req: Request) -> Response:
